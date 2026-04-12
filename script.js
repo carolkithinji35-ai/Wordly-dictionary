@@ -1,17 +1,18 @@
-let form = document
-  .querySelector("form")
-  .addEventListener("submit", fetchMeanings);
+document.querySelector("form").addEventListener("submit", fetchMeanings);
 
 function getData(data) {
   let wordDisplay = document.querySelector("#word");
   wordDisplay.innerHTML = `${data[0].word}`;
   wordDisplay.style.textTransform = "capitalize";
+  document.querySelector("#noun-container").style.display = "block";
+  document.querySelector("#verb-container").style.display = "block";
   //pronounciation
-  let pronountiation = document.querySelector("#pronountiation");
-  pronountiation.innerHTML = `"${data[0].phonetic}"`;
+  let pronounciation = document.querySelector("#pronounciation");
+  pronounciation.innerHTML = `"${data[0].phonetic}"`;
   //audio
   let audioElement = document.querySelector("audio");
   let phoneticAudio = data[0].phonetics.find((p) => p.audio);
+  audioElement.style.display = "block";
   if (phoneticAudio) {
     audioElement.src = phoneticAudio.audio;
   } else {
@@ -28,7 +29,6 @@ function getData(data) {
       noun.partOfSpeech;
     document.querySelector("#noun-meaning").textContent =
       noun.definitions[0].definition;
-
     document.querySelector("#noun-example").textContent =
       noun.definitions[0].example || "No example available";
   } else {
@@ -69,7 +69,7 @@ function fetchMeanings(event) {
     })
     .catch((error) => {
       errorDisplay.hidden = false;
-      errorDisplay.innerHTML = `${error}`;
+      errorDisplay.textContent = `${error}. Try another search.`;
     });
 }
 
@@ -81,10 +81,10 @@ if (localStorage.getItem("theme") === "dark") {
   toggle.classList.add("fa-sun");
 }
 
-toggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
   toggle.classList.toggle("fa-moon");
   toggle.classList.toggle("fa-sun");
   const isDark = document.body.classList.contains("dark");
-   localStorage.setItem("theme", isDark ? "dark" : "light");
-})
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
