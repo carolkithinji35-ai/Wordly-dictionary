@@ -61,6 +61,10 @@ form {
   color: #fff;
   border: none;
   border-radius: 25px;
+
+}
+.submit-button:hover {
+  background-color: #7b61a3;
 }
 .error {
   max-width: 90%;
@@ -181,6 +185,9 @@ body.dark .search-input::placeholder {
 }
 body.dark .submit-button {
   background: #5F4A8B;
+}
+body.dark .submit-button:hover {
+  background-color: #7b61a3;
 }
 body.dark .logo {
   color: #FEFACD;
