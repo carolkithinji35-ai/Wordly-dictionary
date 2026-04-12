@@ -8,20 +8,21 @@
 body {
   padding: 1rem 3rem;
   background-color: #fefdf0;
-  transition: background 300ms ease, color 0.3s ease;
+  transition:
+    background 300ms ease,
+    color 0.3s ease;
 }
 header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.5rem;
   align-items: center;
-}
-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fefdf0; 
-  padding: 0.5rem 0;
+  background: #fefdf0;
+  padding: 0.5rem 0.5rem;
+  box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.2);
 }
 .logo {
   font-size: 2rem;
@@ -56,11 +57,17 @@ form {
   border-radius: 25px;
   border: none;
   font-size: 1rem;
+  transition: all 300ms ease-in-out;
 }
 
 .search-input::placeholder {
   color: rgba(0, 0, 0, 0.381);
   font-size: 1rem;
+}
+.search-input:hover, .search-input:focus {
+  outline: none;
+  border: 1px solid #5F4A8B;
+  box-shadow: 0 0 0  rgba(95, 74, 139, 0.25);
 }
 .submit-button {
   padding: 1rem 2rem;
@@ -68,11 +75,10 @@ form {
   color: #fff;
   border: none;
   border-radius: 25px;
+}
 
-}
-.submit-button:hover {
-  background-color: #7b61a3;
-}
+
+
 .error {
   max-width: 90%;
   background-color: rgba(255, 0, 0, 0.114);
@@ -100,15 +106,17 @@ form {
   animation: slideUp 600ms ease-out forwards;
 }
 #response-container {
-  transition: background 300ms ease, color 0.3s ease;
+  transition:
+    background 300ms ease,
+    color 0.3s ease;
 }
 #meaning-container h3 {
   margin-bottom: 1rem;
   margin-top: 0.7rem;
 }
-audio{
+audio {
   margin-top: 0.5rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 .noun-container,
 .verb-container {
@@ -132,7 +140,6 @@ h5 {
   color: rgba(0, 0, 0, 0.564);
 }
 #synonyms-list {
- 
   font-size: 1rem;
 }
 
@@ -186,6 +193,7 @@ body.dark {
 }
 body.dark header {
   background: #121212;
+  box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.6);
 }
 body.dark #response-container {
   background: #1e1e1e;
@@ -194,21 +202,24 @@ body.dark .search-input {
   background: #2a2a2a;
   color: #fff;
 }
+body.dark .search-input:focus {
+  border: 2px solid #FEFACD;
+  box-shadow: 0 0 0 3px rgba(254, 254, 205, 0.2);
+}
 body.dark .search-input::placeholder {
   color: #aaa;
 }
 body.dark .submit-button {
-  background: #5F4A8B;
+  background: #5f4a8b;
 }
 body.dark .submit-button:hover {
   background-color: #7b61a3;
 }
 body.dark .logo {
-  color: #FEFACD;
+  color: #fefacd;
 }
 body.dark .logo span {
-  
-  color: #5F4A8B;
+  color: #5f4a8b;
 }
 body.dark .example {
   color: #bbb;
@@ -223,5 +234,3 @@ body.dark .error {
   border-color: #ff6b6b;
   color: #ffb3b3;
 }
-
-
