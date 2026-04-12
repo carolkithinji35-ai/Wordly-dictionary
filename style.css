@@ -203,7 +203,7 @@ body.dark .search-input {
   color: #fff;
 }
 body.dark .search-input:focus {
-  border: 2px solid #FEFACD;
+  border: 1px solid #FEFACD;
   box-shadow: 0 0 0 3px rgba(254, 254, 205, 0.2);
 }
 body.dark .search-input::placeholder {
