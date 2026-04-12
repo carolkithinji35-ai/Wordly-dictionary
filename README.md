@@ -5,10 +5,10 @@ A simple, responsive Single Page Application (SPA) that allows users to search f
 ## Preview
 
 ### Light Mode
-![Light Mode](assets/light mode.png)
+![Light Mode](assets/light-mode.png)
 
 ### Dark Mode
-![Dark Mode](assets/dark mode.png)
+![Dark Mode](assets/dark-mode.png)
 
 
 ## Live Demo
