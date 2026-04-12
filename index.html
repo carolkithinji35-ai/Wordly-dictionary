@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style.css" />
     <title>wordly dictionary</title>
   </head>
-  <body>
+  <body class=".dark">
     <header>
       <p class="logo">WORDly<span>.</span></p>
       <i class="fa-regular fa-moon dark-mode"></i>
@@ -24,8 +24,9 @@
         <input type="text" id="search-input" required class="search-input" placeholder="Search for a word...."/>
         <input type="submit" value="Search" class="submit-button" id="submit-button" />
       </form>
+     
       <div id="error-display" class="error" hidden>
-        <p>Something went wrong! Please try again later!</p>
+        <p></p>
       </div>
       <div id="response-container">
         <!-- where the word will appear and the phonetics -->
@@ -70,6 +71,6 @@
         
       </div>
     </main>
-    <footer>&2026</footer>
+    <footer>This project was built by <a href="">carol kithinji</a>🫰, is <a href="">open sourced on Github</a>, and hosted on <a href="">vercel.</a></footer>
   </body>
 </html>

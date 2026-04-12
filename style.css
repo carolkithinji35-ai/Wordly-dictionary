@@ -3,10 +3,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Google sans", sans-serif;
+  font-family: "Google Sans", sans-serif;
 }
 body {
   padding: 1rem 3rem;
+  background-color: #fefdf0;
 }
 header {
   display: flex;
@@ -17,6 +18,10 @@ header {
 .logo {
   font-size: 2rem;
   font-weight: 900;
+  color: #5f4a8b;
+}
+span {
+  color: brown;
 }
 i {
   font-size: 1rem;
@@ -31,18 +36,19 @@ form {
   flex: 1;
   padding: 1rem 1rem 1rem 1.5rem;
   outline: none;
-  background-color: rgba(220, 220, 220, 0.176);
+  background-color: #dcdcdc4e;
   border-radius: 25px;
   border: none;
   font-size: 1rem;
 }
+
 .search-input::placeholder {
   color: rgba(0, 0, 0, 0.381);
   font-size: 1rem;
 }
 .submit-button {
   padding: 1rem 2rem;
-  background-color: rgb(26, 178, 178);
+  background-color: #5f4a8b;
   color: #fff;
   border: none;
   border-radius: 25px;
@@ -65,32 +71,116 @@ form {
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   padding: 1rem;
   border-radius: 4px;
+  animation: slideUp 600ms ease-out forwards;
 }
 #meaning-container h3 {
   margin-bottom: 1rem;
   margin-top: 0.7rem;
 }
-.noun-container, .verb-container{
+.noun-container,
+.verb-container {
   margin-bottom: 1rem;
 }
 
-h4{
+h4 {
   text-decoration: underline;
 }
-h5{
+h5 {
   font-weight: 500;
-  
-
 }
-.word{
+.word {
   text-transform: capitalize;
 }
-.meaning{
-  margin-bottom: .4rem;
-  
+.meaning {
+  margin-bottom: 0.4rem;
 }
-.example{
+.example {
   font-family: monospace;
   color: rgba(0, 0, 0, 0.564);
 }
 
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-top: 0.9rem;
+  animation: slideUp 600ms ease-out forwards;
+}
+a {
+  text-decoration: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+  header {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .search-input {
+    width: 100%;
+    border-radius: 4px;
+  }
+  .submit-button {
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+/* DARK MODE */
+body.dark {
+  background: #121212;
+  color: #f5f5f5;
+}
+
+
+body.dark #response-container {
+  background: #1e1e1e;
+}
+body.dark .search-input {
+  background: #2a2a2a;
+  color: #fff;
+}
+body.dark .search-input::placeholder {
+  color: #aaa;
+}
+body.dark .submit-button {
+  background: #5F4A8B;
+}
+body.dark .logo {
+  color: #FEFACD;
+}
+body.dark .logo span {
+  
+  color: #5F4A8B;
+}
+body.dark .example {
+  color: #bbb;
+}
+body.dark h4,
+body.dark h3,
+body.dark h5 {
+  color: #ddd;
+}
+body.dark .error {
+  background-color: rgba(255, 0, 0, 0.15);
+  border-color: #ff6b6b;
+  color: #ffb3b3;
+}
+
+/* LOADING */
