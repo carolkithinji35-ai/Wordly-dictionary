@@ -124,6 +124,10 @@ h5 {
   font-family: monospace;
   color: rgba(0, 0, 0, 0.564);
 }
+#synonyms-list {
+ 
+  font-size: 1rem;
+}
 
 footer {
   text-align: center;

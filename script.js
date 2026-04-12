@@ -49,6 +49,26 @@ function getData(data) {
     document.querySelector("#verb-example").textContent =
       verb.definitions[0].example || "No example available";
   }
+  //synonyms
+  let synonymsList = document.querySelector("#synonyms-list");
+  synonymsList.innerHTML = "";
+  synonymsList.style.textTransform = "capitalize";
+
+  let synonyms = [];
+
+  data[0].meanings.forEach((meaning) => {
+    meaning.definitions.forEach((definition) => {
+      if (definition.synonyms && definition.synonyms.length > 0) {
+        synonyms.push(...definition.synonyms);
+      }
+    });
+  });
+
+  if (synonyms.length > 0) {
+    synonymsList.textContent = synonyms.join(", ");
+  } else {
+    synonymsList.textContent = "No synonyms available";
+  }
 }
 
 function fetchMeanings(event) {
@@ -57,7 +77,6 @@ function fetchMeanings(event) {
   let word = document.querySelector("#search-input").value;
   let errorDisplay = document.querySelector("#error-display");
   errorDisplay.hidden = true;
-  
 
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((res) => {
