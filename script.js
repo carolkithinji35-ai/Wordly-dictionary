@@ -74,6 +74,17 @@ function fetchMeanings(event) {
 }
 
 const toggle = document.querySelector(".dark-mode");
+
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  toggle.classList.remove("fa-moon");
+  toggle.classList.add("fa-sun");
+}
+
 toggle.addEventListener('click', () => {
   document.body.classList.toggle('dark');
+  toggle.classList.toggle("fa-moon");
+  toggle.classList.toggle("fa-sun");
+  const isDark = document.body.classList.contains("dark");
+   localStorage.setItem("theme", isDark ? "dark" : "light");
 })
