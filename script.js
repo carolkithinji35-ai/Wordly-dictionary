@@ -4,11 +4,11 @@ function getData(data) {
   let wordDisplay = document.querySelector("#word");
   wordDisplay.innerHTML = `${data[0].word}`;
   wordDisplay.style.textTransform = "capitalize";
-  document.querySelector("#noun-container").style.display = "block";
-  document.querySelector("#verb-container").style.display = "block";
-  //pronounciation
-  let pronounciation = document.querySelector("#pronounciation");
-  pronounciation.innerHTML = `"${data[0].phonetic}"`;
+
+  //pronunciation
+  let pronunciation = document.querySelector("#pronunciation");
+  pronunciation.innerHTML = `"${data[0].phonetic || ""}"  `;
+
   //audio
   let audioElement = document.querySelector("audio");
   let phoneticAudio = data[0].phonetics.find((p) => p.audio);
@@ -19,36 +19,39 @@ function getData(data) {
     audioElement.src = "";
     audioElement.style.display = "none";
   }
-  //noun definitions
-  const noun = data[0].meanings.find(
-    (meaning) => meaning.partOfSpeech === "noun",
-  );
 
-  if (noun) {
-    document.querySelector("#noun-partOfSpeech").textContent =
-      noun.partOfSpeech;
-    document.querySelector("#noun-meaning").textContent =
-      noun.definitions[0].definition;
-    document.querySelector("#noun-example").textContent =
-      noun.definitions[0].example || "No example available";
-  } else {
-    document.querySelector("#noun-container").style.display = "none";
-  }
+  // all parts of speech — every meaning, every definition
+  let meaningsContainer = document.querySelector("#meanings-container");
+  meaningsContainer.innerHTML = "";
 
-  //verb def
-  const verb = data[0].meanings.find(
-    (meaning) => meaning.partOfSpeech === "verb",
-  );
+  data[0].meanings.forEach((meaning) => {
+    const section = document.createElement("div");
+    section.classList.add("meaning-section");
 
-  if (verb) {
-    document.querySelector("#verb-partOfSpeech").textContent =
-      verb.partOfSpeech;
-    document.querySelector("#verb-meaning").textContent =
-      verb.definitions[0].definition;
+    const partOfSpeechHeading = document.createElement("h3");
+    partOfSpeechHeading.innerHTML = meaning.partOfSpeech;
+    partOfSpeechHeading.style.textTransform = "Capitalize";
+    partOfSpeechHeading.className = "part-of-speech";
+    section.appendChild(partOfSpeechHeading);
 
-    document.querySelector("#verb-example").textContent =
-      verb.definitions[0].example || "No example available";
-  }
+    meaning.definitions.forEach((def, index) => {
+      const definitionParagraph = document.createElement("p");
+      definitionParagraph.textContent = `${index + 1}. ${def.definition}`;
+      section.appendChild(definitionParagraph);
+
+      if (def.example) {
+        let exampleParagraph = document.createElement("p");
+        exampleParagraph.classList.add("example");
+        exampleParagraph.innerHTML =
+          "<em  class='example-label'>Example:</em>" + "<br>" + def.example;
+
+        section.appendChild(exampleParagraph);
+      }
+    });
+
+    meaningsContainer.appendChild(section);
+  });
+
   //synonyms
   let synonymsList = document.querySelector("#synonyms-list");
   synonymsList.innerHTML = "";
@@ -57,6 +60,10 @@ function getData(data) {
   let synonyms = [];
 
   data[0].meanings.forEach((meaning) => {
+    if (meaning.synonyms && meaning.synonyms.length > 0) {
+      synonyms.push(...meaning.synonyms);
+    }
+
     meaning.definitions.forEach((definition) => {
       if (definition.synonyms && definition.synonyms.length > 0) {
         synonyms.push(...definition.synonyms);

@@ -64,10 +64,11 @@ form {
   color: rgba(0, 0, 0, 0.381);
   font-size: 1rem;
 }
-.search-input:hover, .search-input:focus {
+.search-input:hover,
+.search-input:focus {
   outline: none;
-  border: 1px solid #5F4A8B;
-  box-shadow: 0 0 0  rgba(95, 74, 139, 0.25);
+
+  box-shadow: 0 0 0 rgba(95, 74, 139, 0.25);
 }
 .submit-button {
   padding: 1rem 2rem;
@@ -76,8 +77,6 @@ form {
   border: none;
   border-radius: 25px;
 }
-
-
 
 .error {
   max-width: 90%;
@@ -122,6 +121,10 @@ audio {
 .verb-container {
   margin-bottom: 1rem;
 }
+.part-of-speech {
+  margin-top: 1rem;
+  text-decoration: underline;
+}
 
 h4 {
   text-decoration: underline;
@@ -138,6 +141,11 @@ h5 {
 .example {
   font-family: monospace;
   color: rgba(0, 0, 0, 0.564);
+}
+.example-label {
+  color: black;
+  font-size: 0.75rem;
+  font-weight: bold;
 }
 #synonyms-list {
   font-size: 1rem;
@@ -203,7 +211,7 @@ body.dark .search-input {
   color: #fff;
 }
 body.dark .search-input:focus {
-  border: 1px solid #FEFACD;
+  border: 1px solid #fefacd;
   box-shadow: 0 0 0 3px rgba(254, 254, 205, 0.2);
 }
 body.dark .search-input::placeholder {
@@ -223,6 +231,9 @@ body.dark .logo span {
 }
 body.dark .example {
   color: #bbb;
+}
+body.dark .example-label {
+  color: #ffffff;
 }
 body.dark h4,
 body.dark h3,

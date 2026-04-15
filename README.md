@@ -1,6 +1,6 @@
 #  Wordly Dictionary SPA
 
-A simple, responsive Single Page Application (SPA) that allows users to search for words and view their meanings, pronunciation, and examples  using a public dictionary API.
+A simple, responsive Single Page Application (SPA) that allows users to search for words and view their meanings, pronunciation, synonyms and examples  using a public dictionary API.
 
 ## Preview
 

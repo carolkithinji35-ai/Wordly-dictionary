@@ -14,17 +14,28 @@
     <link rel="stylesheet" href="style.css" />
     <title>wordly dictionary</title>
   </head>
-  <body >
+  <body>
     <header>
       <p class="logo">WORDly<span>.</span></p>
       <i class="fa-regular fa-moon dark-mode"></i>
     </header>
     <main>
       <form action="">
-        <input type="text" id="search-input" required class="search-input" placeholder="Search for a word...."/>
-        <input type="submit" value="Search" class="submit-button" id="submit-button" />
+        <input
+          type="text"
+          id="search-input"
+          required
+          class="search-input"
+          placeholder="Search Word...."
+        />
+        <input
+          type="submit"
+          value="Search"
+          class="submit-button"
+          id="submit-button"
+        />
       </form>
-     
+
       <div id="error-display" class="error" hidden>
         <p></p>
       </div>
@@ -33,7 +44,7 @@
         <div id="word-display">
           <h2 id="word" class="word">Hello</h2>
           <div id="phonetics" class="phonetics">
-            <p id="pronounciation">"/həˈləʊ/"</p>
+            <p id="pronunciation">"/həˈləʊ/"</p>
             <audio
               src="//ssl.gstatic.com/dictionary/static/sounds/20200429/hello--_gb_1.mp3"
               controls
@@ -42,28 +53,28 @@
         </div>
         <hr />
         <!-- meanings and definitions  -->
-        <div id="meaning-container">
+        <div id="meanings-container">
           <h3>Meanings and definitions</h3>
           <div id="noun-container" class="noun-container">
-            <h4 id="noun-partOfSpeech">noun</h4>
-            <p id="noun-meaning" class="meaning">something you say to greet someone.</p>
+            <h4 id="noun-partOfSpeech">Noun</h4>
+            <p id="noun-meaning" class="meaning">
+              something you say to greet someone.
+            </p>
             <h5><em>Example</em></h5>
             <p id="noun-example" class="example">
               she was getting polite nods and hellos from people
             </p>
           </div>
           <div id="verb-container" class="verb-container">
-            <h4 id="verb-partOfSpeech">verb</h4>
+            <h4 id="verb-partOfSpeech">Verb</h4>
             <p id="verb-meaning" class="meaning">say or shout ‘hello’</p>
             <h5><em>Example</em></h5>
-            <p id="verb-example" class="example">
-              She waved and said hello.
-            </p>
+            <p id="verb-example" class="example">She waved and said hello.</p>
           </div>
-          <div id="synonyms">
-            <h4 id="synonyms-header">Synonyms</h4>
-            <p id="synonyms-list">Hi, Hey, Greetings, Howdy</p>
-          </div>
+        </div>
+        <div id="synonyms">
+          <h4 id="synonyms-header">Synonyms</h4>
+          <p id="synonyms-list">Hi, Hey, Greetings, Howdy</p>
         </div>
         <!-- origin -->
         <!-- <div id="word-origin">
@@ -72,9 +83,15 @@
             early 19th century: variant of earlier hollo ; related to holla.
           </p>
         </div> -->
-        
       </div>
     </main>
-    <footer>This project was built by <a href="https://github.com/carolkithinji35-ai">carol kithinji</a>🫰, is <a href="https://github.com/carolkithinji35-ai/Wordly-dictionary">open sourced on Github</a>, and hosted on <a href="https://wordly-dictionary-kappa.vercel.app/">vercel.</a></footer>
+    <footer>
+      This project was built by
+      <a href="https://github.com/carolkithinji35-ai">carol kithinji</a>🫰, is
+      <a href="https://github.com/carolkithinji35-ai/Wordly-dictionary"
+        >open sourced on Github</a
+      >, and hosted on
+      <a href="https://wordly-dictionary-kappa.vercel.app/">vercel.</a>
+    </footer>
   </body>
 </html>
